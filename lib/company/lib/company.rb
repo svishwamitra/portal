@@ -1,1 +1,4 @@
-require File.expand_path('../../config/engine', __FILE__)
+require "company/engine"
+
+module Company
+end

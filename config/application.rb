@@ -1,6 +1,6 @@
 require File.expand_path('../boot', __FILE__)
-require File.expand_path('../../lib/crm/lib/crm', __FILE__)
-require File.expand_path('../../lib/company/lib/company', __FILE__)
+require File.expand_path('../../lib/contacts/lib/crm', __FILE__)
+require File.expand_path('../../lib/accounts/lib/company', __FILE__)
 
 require 'rails/all'
 

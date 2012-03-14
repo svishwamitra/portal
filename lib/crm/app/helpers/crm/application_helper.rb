@@ -1,2 +1,0 @@
-module Crm::ApplicationHelper
-end

@@ -1,0 +1,28 @@
+<h1>Portal Accounts</h1>
+<div style="float:right"><%= link_to 'New Account', new_account_path, :class => 'btn btn-primary' %></div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+<% @accounts.each do |account| %>
+  <tr>
+    <td><%= account.name %></td>
+    <td><%= account.email %></td>
+    <td><%= account.phone %></td>
+    <td><%= link_to 'Show', account, :class => 'btn btn-mini' %></td>
+    <td><%= link_to 'Edit', edit_account_path(account), :class => 'btn btn-mini' %></td>
+    <td><%= link_to 'Destroy', account, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini btn-danger' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
