@@ -4,10 +4,11 @@ module Crm
     # GET /contacts.json
     def index
       @contacts = Contact.all
+      @accounts = Company::Account.where("name ilike ?", "%#{params[:q]}%")
   
       respond_to do |format|
         format.html # index.html.erb
-        format.json { render json: @contacts }
+        format.json { render json: @accounts.map(&:attributes)}
       end
     end
   

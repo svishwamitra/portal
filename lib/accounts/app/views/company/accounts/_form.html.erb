@@ -23,6 +23,10 @@
     <%= f.label :phone %><br />
     <%= f.text_field :phone %>
   </div>
+  <div class="field">
+    <%= f.label :contact_tokens, "Contacts" %><br />
+    <%= f.text_field :contact_tokens, "data-pre" => @account.contacts.map(&:attributes).to_json %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -6,6 +6,7 @@
       <th>Name</th>
       <th>Email</th>
       <th>Phone</th>
+      <th>Contact Linked</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,6 +17,7 @@
     <td><%= account.name %></td>
     <td><%= account.email %></td>
     <td><%= account.phone %></td>
+    <td><%= account.contacts.size %></td>
     <td><%= link_to 'Show', account, :class => 'btn btn-mini' %></td>
     <td><%= link_to 'Edit', edit_account_path(account), :class => 'btn btn-mini' %></td>
     <td><%= link_to 'Destroy', account, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini btn-danger' %></td>

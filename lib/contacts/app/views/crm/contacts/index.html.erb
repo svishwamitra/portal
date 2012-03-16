@@ -6,6 +6,7 @@
       <th>Name</th>
       <th>Email</th>
       <th>Phone</th>
+      <th>Account Name</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,6 +17,7 @@
     <td><%= contact.name %></td>
     <td><%= contact.email %></td>
     <td><%= contact.phone %></td>
+    <td><%= contact.accounts.first.name rescue "-" %></td>
     <td><%= link_to 'Show', contact, :class => 'btn btn-mini' %></td>
     <td><%= link_to 'Edit', edit_contact_path(contact), :class => 'btn btn-mini' %></td>
     <td><%= link_to 'Destroy', contact, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini btn-danger' %></td>

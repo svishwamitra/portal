@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+$(function () {
+   $('#account_contact_tokens').tokenInput('/company/accounts.json', {
+    crossDomain: false});
+});
+
+$(function () {
+   $('#contact_account_tokens').tokenInput('/crm/contacts.json', {
+    crossDomain: false,
+    tokenLimit: 1
+   });
+});
