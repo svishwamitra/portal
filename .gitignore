@@ -24,7 +24,7 @@ spec/dummy
 
 # Logs and databases #
 ######################
-#config/database.yml
+config/database.yml
 *.log
 *.sql
 *.sqlite
