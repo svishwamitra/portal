@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 require File.expand_path('../../lib/contacts/lib/crm', __FILE__)
 require File.expand_path('../../lib/accounts/lib/company', __FILE__)
+require File.expand_path('../../lib/sortable/lib/sortable', __FILE__)
 
 require 'rails/all'
 
@@ -59,6 +60,8 @@ module Portal
 
     #config.asset_path = proc {|path| "/lib/"}
     puts config.assets.paths
+    
+    config.assets.precompile += %w( *.js *.css )
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'

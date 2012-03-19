@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require jquery.tokeninput
 //= require_tree .
 $(function () {
    $('#account_contact_tokens').tokenInput('/company/accounts.json', {
