@@ -1,11 +1,12 @@
 module Crm
   class ContactsController < ::ApplicationController
+    # sortable_table Contact
     # GET /contacts
     # GET /contacts.json
     def index
-      @contacts = Contact.all
+      @contacts = Contact.paginate(:page => params[:page], :per_page => 5).where("name ilike ?", "#{params[:char]}%")
       @accounts = Company::Account.where("name ilike ?", "%#{params[:q]}%")
-  
+    
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @accounts.map(&:attributes)}

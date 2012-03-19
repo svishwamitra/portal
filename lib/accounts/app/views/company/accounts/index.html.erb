@@ -1,5 +1,6 @@
 <h1>Portal Accounts</h1>
 <div style="float:right"><%= link_to 'New Account', new_account_path, :class => 'btn btn-primary' %></div>
+<%= render 'alphabets' %>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -27,4 +28,4 @@
 
 <br />
 
-
+<%= will_paginate @accounts, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer %>

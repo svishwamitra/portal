@@ -8,22 +8,22 @@ development:
   encoding: utf8
   database: portal_engine
   pool: 10
-  username: livia
-  password: livia
+  username: postgres
+  password: 
 
 production:
   adapter: postgresql
   encoding: utf8
   database: portal_engine
   pool: 10
-  username: livia
+  username: postgres
   password: livia
 
 test:
   adapter: postgresql
   encoding: utf8
-  database: portal_engine
+  database: portal_engine_test
   pool: 10
-  username: livia
-  password: livia
+  username: postgres
+  password: 
 
