@@ -5,12 +5,13 @@ gem 'rails', '~>3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
+gem 'sqlite3'
 gem 'crm', :path => 'lib/contacts'
 gem 'company', :path => 'lib/accounts'
 #gem 'sortable', :path => 'lib/sortable'
 gem 'will_paginate', '~>3.0'
 gem 'bootstrap-will_paginate'
+gem 'simple_form'
 
 # Gems used only for assets and not required
 # in production environments by default.
