@@ -1,5 +1,4 @@
-require 'generator'
-require 'will_paginate'
+#require 'generator'
 
 module Sortable
     def self.included(base)

@@ -1,7 +1,5 @@
 <% for char in 'A'..'Z' %>
 <%= link_to( "#{char}",
-                         :update => "content",
-                         :char => char,
-                         :url =>{:action => :index }) %> 
+                         :char => char) %> 
 <% end %>
-- <%= link_to( "All", {:action => :index }) %>
+- <%= link_to( "All", contacts_path) %>

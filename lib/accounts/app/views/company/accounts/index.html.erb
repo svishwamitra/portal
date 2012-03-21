@@ -4,7 +4,11 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>
+        <%= link_to "^", params.merge({:sort => 'company_accounts.name asc'}), :title=> 'Asc' %>&nbsp;
+        Name &nbsp;
+        <%= link_to "v", params.merge({:sort => 'company_accounts.name desc'}), :title=> 'Desc' %>
+      </th>
       <th>Email</th>
       <th>Phone</th>
       <th>Contact Linked</th>

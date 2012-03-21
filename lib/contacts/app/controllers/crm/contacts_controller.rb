@@ -1,12 +1,14 @@
 module Crm
   class ContactsController < ::ApplicationController
-    # sortable_table Contact
+    #caches_page :index, :show
+    # cache_sweeper :contact_sweeper
+    before_filter(only: [:index, :show]) { @page_caching = true }
     # GET /contacts
     # GET /contacts.json
     def index
-      @contacts = Contact.paginate(:page => params[:page], :per_page => 5).where("name #{like_or_ilike} ?", "#{params[:char]}%")
-      @accounts = Company::Account.where("name #{like_or_ilike} ?", "%#{params[:q]}%")
-    
+      @contacts = Contact.conditional_pagesort(params)
+      @accounts = Company::Account.where("name #{like} ?", "%#{params[:q]}%")
+      
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @accounts.map(&:attributes)}
@@ -17,11 +19,7 @@ module Crm
     # GET /contacts/1.json
     def show
       @contact = Contact.find(params[:id])
-  
-      respond_to do |format|
-        format.html # show.html.erb
-        format.json { render json: @contact }
-      end
+      fresh_when etag: @contact, last_modified: @contact.updated_at
     end
   
     # GET /contacts/new
@@ -47,6 +45,7 @@ module Crm
   
       respond_to do |format|
         if @contact.save
+          sweep
           format.html { redirect_to contacts_path, notice: 'Contact was successfully created.' }
           format.json { render json: @contact, status: :created, location: @contact }
         else
@@ -63,6 +62,7 @@ module Crm
   
       respond_to do |format|
         if @contact.update_attributes(params[:contact])
+          sweep
           format.html { redirect_to contacts_path, notice: 'Contact was successfully updated.' }
           format.json { head :no_content }
         else
@@ -77,11 +77,23 @@ module Crm
     def destroy
       @contact = Contact.find(params[:id])
       @contact.destroy
-  
+      sweep
       respond_to do |format|
         format.html { redirect_to contacts_url }
         format.json { head :no_content }
       end
+    end
+    
+private
+    def sweep
+      #expire_page contacts_path
+      #expire_page contact_path(@contact)
+      #rescue
+      #expire_page "/"
+      FileUtils.remove_dir "#{page_cache_directory}/crm/contacts", true
+      puts "sweeper called ............................."
+      puts "#{page_cache_directory}/crm/contacts"
+      puts "--------------------------------------------"
     end
   end
 end

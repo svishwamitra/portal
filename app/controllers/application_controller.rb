@@ -1,11 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  def like_or_ilike  
+  def like  
       if ActiveRecord::Base.connection.adapter_name.downcase == 'postgresql'
-        s = 'ilike'
+        'ilike'
       else
-        s = 'like'
+        'like'
       end
-      @s ||= s
   end
 end

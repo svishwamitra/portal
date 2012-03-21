@@ -3,8 +3,8 @@ module Company
     # GET /accounts
     # GET /accounts.json
     def index
-      @accounts = Account.paginate(:page => params[:page], :per_page => 5).where("name #{like_or_ilike} ?", "#{params[:char]}%")
-      @contacts = Crm::Contact.where("name #{like_or_ilike} ? and id not in(select contact_id from crm_account_contacts)", "%#{params[:q]}%")
+      @accounts = Account.paginate(:page => params[:page], :per_page => 5).where("name #{like} ?", "#{params[:char]}%").order(params[:sort])
+      @contacts = Crm::Contact.where("name #{like} ? and id not in(select contact_id from crm_account_contacts)", "%#{params[:q]}%")
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @contacts.map(&:attributes)}

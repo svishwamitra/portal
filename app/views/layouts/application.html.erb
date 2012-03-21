@@ -8,7 +8,7 @@
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= stylesheet_link_tag "application", "token-input", %>
   <%= javascript_include_tag "application", "jquery.tokeninput" %>
-  <%= csrf_meta_tags %>
+  <%= csrf_meta_tag unless @page_caching %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -33,7 +33,14 @@
 
   <div class="container">
     <div class="row">
-      <div class="span9"><%= yield %></div>
+      <div class="span9">
+        <% unless @page_caching %>
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, id: "flash_#{name}" %>
+          <% end %>
+        <% end %>
+        <%= yield %>
+      </div>
       <div class="span3">
         <h2>About Us</h2>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

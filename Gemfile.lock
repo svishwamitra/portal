@@ -3,6 +3,7 @@ PATH
   specs:
     company (0.0.1)
       rails (~> 3.2.2)
+      simple_form
 
 PATH
   remote: lib/contacts
