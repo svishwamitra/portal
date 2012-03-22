@@ -7,7 +7,7 @@ module Crm
     
     attr_accessible :account_tokens,:name,:email,:phone
     attr_reader :account_tokens
-    
+    acts_as_addressable
     self.per_page = 5
     
     def account_tokens=(ids)

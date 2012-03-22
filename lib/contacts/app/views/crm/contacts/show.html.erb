@@ -1,20 +1,20 @@
+<div>
 <p id="notice"><%= notice %></p>
-
 <p>
   <b>Name:</b>
   <%= @contact.name %>
 </p>
-
 <p>
   <b>Email:</b>
   <%= @contact.email %>
 </p>
-
 <p>
   <b>Phone:</b>
   <%= @contact.phone %>
 </p>
-
+</div>
+<%= Addressable::render_addressable_show(@contact) %>
+<%#= render '/addressable/addresses/show', :obj => @contact %>
 
 <%= link_to 'Edit', edit_contact_path(@contact), :class => 'btn btn-mini' %> |
 <%= link_to 'Back', contacts_path, :class => 'btn btn-mini' %>

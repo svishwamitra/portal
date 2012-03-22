@@ -1,0 +1,31 @@
+<div><h3>Enter Address Details</h3></div>
+<%= f.fields_for :addresses do |ff|%>
+  <div class="field">
+    <%= ff.label :title %><br />
+    <%= ff.text_field :title %>
+  </div>
+  <div class="field">
+    <%= ff.label :street1 %><br />
+    <%= ff.text_field :street1 %>
+  </div>
+  <div class="field">
+    <%= ff.label :street2 %><br />
+    <%= ff.text_field :street2 %>
+  </div>
+  <div class="field">
+    <%= ff.label :city %><br />
+    <%= ff.text_field :city %>
+  </div>
+  <div class="field">
+    <%= ff.label :state %><br />
+    <%= ff.text_field :state %>
+  </div>
+  <div class="field">
+    <%= ff.label :country %><br />
+    <%= ff.text_field :country %>
+  </div>
+  <div class="field">
+    <%= ff.label :zipcode %><br />
+    <%= ff.text_field :zipcode %>
+  </div>
+<%end%>

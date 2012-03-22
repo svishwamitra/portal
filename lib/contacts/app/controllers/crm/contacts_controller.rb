@@ -26,7 +26,7 @@ module Crm
     # GET /contacts/new.json
     def new
       @contact = Contact.new
-  
+      @contact.addresses.build
       respond_to do |format|
         format.html # new.html.erb
         format.json { render json: @contact }
@@ -36,13 +36,21 @@ module Crm
     # GET /contacts/1/edit
     def edit
       @contact = Contact.find(params[:id])
+      @contact.addresses.empty? ? @contact.addresses.build : @contact.addresses.first
     end
   
     # POST /contacts
     # POST /contacts.json
     def create
-      @contact = Contact.new(params[:contact])
-  
+      @contact = Contact.new(:name => params[:contact][:name],
+                             :email => params[:contact][:email],
+                              :phone => params[:contact][:phone],
+                              :account_tokens => params[:contact][:account_tokens])
+      @contact.addresses.build(params[:contact][:addresses_attributes]["0"])
+#      @contact = Contact.new(params[:contact])
+#      @contact.addresses.build
+       #(params[:contact][:address])
+
       respond_to do |format|
         if @contact.save
           sweep
@@ -59,10 +67,14 @@ module Crm
     # PUT /contacts/1.json
     def update
       @contact = Contact.find(params[:id])
-  
-      respond_to do |format|
-        if @contact.update_attributes(params[:contact])
-          sweep
+      
+      respond_to do |format|      
+        if @contact.update_attributes(:name => params[:contact][:name],
+                                      :email => params[:contact][:email],
+                                      :phone => params[:contact][:phone],
+                                      :account_tokens => params[:contact][:account_tokens])
+          @contact.addresses.empty? ? @contact.addresses.create(params[:contact][:addresses_attributes]["0"]) : @contact.addresses.first.update_attributes(params[:contact][:addresses_attributes]["0"])
+          sweep          
           format.html { redirect_to contacts_path, notice: 'Contact was successfully updated.' }
           format.json { head :no_content }
         else

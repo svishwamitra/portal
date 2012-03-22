@@ -7,11 +7,9 @@ module Company
     
     attr_accessible :contact_tokens,:name,:email,:phone
     attr_reader :contact_tokens
-
+    acts_as_addressable
     def contact_tokens=(ids)
       self.contact_ids = ids.split(",")
     end
-
-
   end
 end

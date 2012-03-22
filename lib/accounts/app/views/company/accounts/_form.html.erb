@@ -5,4 +5,7 @@
   <%= f.input :contact_tokens, "data-pre" => @account.contacts.map(&:attributes).to_json %>
   <br/>
   <%= f.button :submit %>
+  <div>
+    <%= render '/addressable/addresses/address', :f => f %>
+  </div>
 <% end %>

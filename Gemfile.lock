@@ -13,7 +13,6 @@ PATH
       jquery-rails
       rails (~> 3.2.2)
       simple_form
-      sortable
       will_paginate
 
 GEM
@@ -116,7 +115,6 @@ GEM
     simple_form (2.0.1)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
-    sortable (0.1)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)

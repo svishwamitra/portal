@@ -2,6 +2,7 @@ Portal::Application.routes.draw do
 
   mount Crm::Engine => "/crm"
   mount Company::Engine => "/company"
+  mount Addressable::Engine => "/addressable"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

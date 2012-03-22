@@ -1,0 +1,8 @@
+module Addressable
+  module ApplicationHelper
+    def render_addressable_show(form_obj)
+      p "22222222222222"
+      render 'show', :obj => form_obj
+    end
+  end
+end
