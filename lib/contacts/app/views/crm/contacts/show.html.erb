@@ -13,8 +13,7 @@
   <%= @contact.phone %>
 </p>
 </div>
-<%= Addressable::render_addressable_show(@contact) %>
-<%#= render '/addressable/addresses/show', :obj => @contact %>
+<%= render '/addressable/addresses/show', :obj => @contact %>
 
 <%= link_to 'Edit', edit_contact_path(@contact), :class => 'btn btn-mini' %> |
 <%= link_to 'Back', contacts_path, :class => 'btn btn-mini' %>

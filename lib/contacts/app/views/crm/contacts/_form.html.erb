@@ -3,10 +3,10 @@
   <%= f.input :email %>
   <%= f.input :phone %>
   <%= f.input :account_tokens, "data-pre" => @contact.accounts.map(&:attributes).to_json,:tokenLimit => 1%>
-  <br/>
-  <%= f.button :submit %>
   <div>
     <%= render '/addressable/addresses/address', :f => f %>
   </div>
+<br/>
+  <%= f.button :submit %>
   <br/>
 <% end %>
