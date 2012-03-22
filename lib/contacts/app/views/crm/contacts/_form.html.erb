@@ -2,7 +2,7 @@
   <%= f.input :name %>
   <%= f.input :email %>
   <%= f.input :phone %>
-  <%= f.input :account_tokens, "data-pre" => @contact.accounts.map(&:attributes).to_json,:tokenLimit => 1%>
+  <%= f.input :account_tokens, :label => "Link Account", "data-pre" => @contact.accounts.map(&:attributes).to_json,:tokenLimit => 1%>
   <div>
     <%= render '/addressable/addresses/address', :f => f %>
   </div>

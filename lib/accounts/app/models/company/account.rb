@@ -11,5 +11,48 @@ module Company
     def contact_tokens=(ids)
       self.contact_ids = ids.split(",")
     end
+    
+    def self.conditional_pagesort(params)
+      if ActiveRecord::Base.connection.adapter_name.downcase == 'postgresql'
+        s = 'ilike'
+      else
+        s = 'like'
+      end
+      
+      #*****************************************
+      # Build filter conditions
+      # One can actually use where for each 
+      # condition instead of these if conditions
+      #*****************************************
+      
+      conditions = ''
+      p = []
+      if params[:account_name]
+        conditions += "company_accounts.name #{s} ?"
+        p << params[:account_name].to_s + "%"
+      end
+      if conditions.length > 0
+        conditions += " and "
+      end
+      if params[:account_email]
+        conditions += "company_accounts.email #{s} ?"
+        p << "#{params[:account_email]}%"
+      end
+      if conditions.length > 0
+        conditions += " and "
+      end
+      if params[:account_phone]
+        conditions += "company_accounts.phone #{s} ?"
+        p << params[:account_phone].to_s + "%"
+      end
+      p.unshift(conditions)
+      puts "*************************"
+      puts p.inspect
+      puts "*************************"
+      #***************************************
+      
+      paginate(:page => params[:page], :per_page => 5).where("name #{s} ?", "#{params[:char]}%").where(p).order(params[:sort])
+    end
+
   end
 end

@@ -1,0 +1,43 @@
+  <thead>
+    <tr>
+      <th>
+        <%= link_to "^", params.merge({:sort => 'crm_contacts.name asc'}), :title=> 'Asc' %>&nbsp;
+        Name &nbsp;
+        <%= link_to "v", params.merge({:sort => 'crm_contacts.name desc'}), :title=> 'Desc' %>
+      </th>
+      <th>
+        <%= link_to "^", params.merge({:sort => 'crm_contacts.email asc'}), :title=> 'Asc' %>&nbsp;
+        Email &nbsp;
+        <%= link_to "v", params.merge({:sort => 'crm_contacts.email desc'}), :title=> 'Desc' %>
+      </th>
+      <th>
+        <%= link_to "^", params.merge({:sort => 'crm_contacts.phone asc'}), :title=> 'Asc' %>&nbsp;
+        Phone &nbsp;
+        <%= link_to "v", params.merge({:sort => 'crm_contacts.phone desc'}), :title=> 'Desc' %>
+      </th>
+      <th>Account</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <%= form_tag(params.merge(:action=>:index), {:method => :get}) do %>
+    <tr>
+      <th>
+          <%= text_field_tag :contact_name, params[:contact_name], {:size => "5"} %>
+      </th>
+      <th>
+          <%= text_field_tag :contact_email, params[:contact_email], :limit => 20 %>
+      </th>
+      <th>
+          <%= text_field_tag :contact_phone, params[:contact_phone], :limit => 15 %>
+      </th>
+      <th>
+      </td>
+      <th colspan='3'>
+        <%= submit_tag 'Apply Filter' %>
+      </th>
+     </tr>
+     <% end %>  
+  </thead>
+
