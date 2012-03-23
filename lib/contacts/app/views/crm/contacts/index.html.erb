@@ -1,3 +1,14 @@
+<script type="text/javascript">
+function show(id)
+{
+  if ($('#filters_row').is(':visible')) {
+    $('#filters_row').css('display', 'none');
+  } else {
+    $('#filters_row').css('display', 'block');
+  }
+}
+</script>
+
 <h1>Portal Contacts</h1>
 <div style="float:right"><%= link_to 'New Contact', new_contact_path, :class => 'btn btn-primary' %></div>
 <%= render 'alphabets' %>

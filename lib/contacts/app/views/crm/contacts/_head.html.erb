@@ -1,3 +1,4 @@
+<%= form_tag(params.merge(:action=>:index), {:method => :get}) do %>
   <thead>
     <tr>
       <th>
@@ -17,27 +18,26 @@
       </th>
       <th>Account</th>
       <th></th>
-      <th></th>
+      <th><%= link_to "Filters", "#", :class => 'btn btn-mini', :id => 'filters_link', :onclick=>"show('filters_row'); return false;" %></th>
       <th></th>
     </tr>
-
-    <%= form_tag(params.merge(:action=>:index), {:method => :get}) do %>
-    <tr>
-      <th>
+    
+    <tr id="filters_row">
+      <td>
           <%= text_field_tag :contact_name, params[:contact_name], {:size => "5"} %>
-      </th>
-      <th>
-          <%= text_field_tag :contact_email, params[:contact_email], :limit => 20 %>
-      </th>
-      <th>
-          <%= text_field_tag :contact_phone, params[:contact_phone], :limit => 15 %>
-      </th>
-      <th>
       </td>
-      <th colspan='3'>
-        <%= submit_tag 'Apply Filter' %>
+      <td>
+          <%= text_field_tag :contact_email, params[:contact_email], :limit => 20 %>
+      </td>
+      <td>
+          <%= text_field_tag :contact_phone, params[:contact_phone], :limit => 15 %>
+      </td>
+      <td>
       </th>
+      <td colspan='3'>
+        <%= submit_tag 'Apply Filter' %>
+      </td>
      </tr>
-     <% end %>  
   </thead>
+<% end %>  
 

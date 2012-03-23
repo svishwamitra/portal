@@ -26,3 +26,12 @@ $(function () {
     tokenLimit: 1
    });
 });
+
+$(function(){
+  $('#filters_link').click(function()
+    {
+      alert('Hi');
+      $('#filter_rows').css('display', 'block');
+      $('#filters_row').fadeIn();
+    });
+});

@@ -13,6 +13,11 @@ module Company
     end
     
     def self.conditional_pagesort(params)
+      # **************************************
+      # Check to see if the db conn adapter is 
+      # for postgresql and accordingly use 
+      # like or ilike
+      # **************************************
       if ActiveRecord::Base.connection.adapter_name.downcase == 'postgresql'
         s = 'ilike'
       else
@@ -24,7 +29,6 @@ module Company
       # One can actually use where for each 
       # condition instead of these if conditions
       #*****************************************
-      
       conditions = ''
       p = []
       if params[:account_name]
