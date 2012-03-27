@@ -1,8 +1,8 @@
 module Crm
   class ContactsController < ::ApplicationController
     #caches_page :index, :show
-    # cache_sweeper :contact_sweeper
-    before_filter(only: [:index, :show]) { @page_caching = true }
+    #cache_sweeper :contact_sweeper
+    #before_filter(only: [:index, :show]) { @page_caching = true }
     # GET /contacts
     # GET /contacts.json
     def index
@@ -19,7 +19,7 @@ module Crm
     # GET /contacts/1.json
     def show
       @contact = Contact.find(params[:id])
-      fresh_when etag: @contact, last_modified: @contact.updated_at
+      #fresh_when etag: @contact, last_modified: @contact.updated_at
     end
   
     # GET /contacts/new

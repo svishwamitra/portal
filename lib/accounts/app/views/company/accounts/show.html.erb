@@ -14,7 +14,7 @@
   <b>Phone:</b>
   <%= @account.phone %>
 </p>
-<%= render '/addressable/addresses/show', :obj => @account %>
+<%= render_addressable_show(@account) %>
 
 <%= link_to 'Edit', edit_account_path(@account) %> |
 <%= link_to 'Back', accounts_path %>
