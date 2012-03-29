@@ -1,0 +1,16 @@
+<%= simple_form_for(@matter) do |f| %>
+  <%= f.input :matter_no %>
+  <%= f.input :ref_no %>
+  <%= f.input :name %>
+  <%= f.input :brief %>
+  <%= f.input :description, :as => :text, :row => 10, :col => 10 %>
+  <%= f.input :matter_date, :as => :date %>
+  <%= f.input :client_access, :input_html => { :value => '0' } %><br/>
+  <%= f.input :is_internal, :input_html => { :value => '0' } %><br/>
+  <label>Select Parent Matter</label><%= f.collection_select :parent_id, @matters, :id, :name %>
+  <%= f.text_field :linked_contact_tokens, :label => "Linked Contact", "data-pre" => @matter_contact.map(&:attributes).to_json %>
+  <br/>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

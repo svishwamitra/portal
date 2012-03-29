@@ -30,8 +30,14 @@ $(function () {
 $(function(){
   $('#filters_link').click(function()
     {
-      alert('Hi');
       $('#filter_rows').css('display', 'block');
       $('#filters_row').fadeIn();
     });
+});
+
+$(function () {
+   $('#matter_linked_contact_tokens').tokenInput('/matters/matters.json', {
+    crossDomain: false,
+    tokenLimit: 1
+   });
 });

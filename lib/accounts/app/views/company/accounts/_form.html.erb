@@ -2,7 +2,7 @@
   <%= f.input :name %>
   <%= f.input :email %>
   <%= f.input :phone %>
-  <%= f.input :contact_tokens, :label => "Link contacts", "data-pre" => @account.contacts.map(&:attributes).to_json %>
+  <%= f.text_field :contact_tokens, :label => "Link contacts", "data-pre" => @account.contacts.map(&:attributes).to_json %>
   <div>
     <%= render_addressable_new(f) %>
   </div>

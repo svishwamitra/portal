@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120320133915) do
+ActiveRecord::Schema.define(:version => 20120322123315) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "addressable_id"
@@ -52,6 +52,38 @@ ActiveRecord::Schema.define(:version => 20120320133915) do
     t.string   "phone"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "matters", :force => true do |t|
+    t.string   "name",          :limit => 50
+    t.string   "brief",         :limit => 100
+    t.string   "matter_no"
+    t.string   "ref_no"
+    t.text     "description"
+    t.date     "matter_date"
+    t.boolean  "client_access"
+    t.boolean  "is_internal"
+    t.integer  "parent_id"
+    t.integer  "contact_id"
+    t.integer  "account_id"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  create_table "matters_matters", :force => true do |t|
+    t.text     "name"
+    t.text     "brief"
+    t.string   "matter_no"
+    t.string   "ref_no"
+    t.text     "description"
+    t.date     "matter_date"
+    t.boolean  "client_access"
+    t.boolean  "is_internal"
+    t.integer  "parent_id"
+    t.integer  "contact_id"
+    t.integer  "account_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
 end

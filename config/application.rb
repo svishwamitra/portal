@@ -3,6 +3,7 @@ require File.expand_path('../../lib/contacts/lib/crm', __FILE__)
 require File.expand_path('../../lib/accounts/lib/company', __FILE__)
 require File.expand_path('../../lib/sortable/lib/sortable', __FILE__)
 require File.expand_path('../../lib/addressable/lib/addressable', __FILE__)
+require File.expand_path('../../lib/matters/lib/matters', __FILE__)
 
 require 'rails/all'
 

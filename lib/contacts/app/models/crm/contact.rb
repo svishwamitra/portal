@@ -2,7 +2,7 @@ module Crm
   class Contact < ActiveRecord::Base    
     has_many :account_contacts
     has_many :accounts, :through => :account_contacts, :class_name => "Company::Account"
-    
+    has_many :matters, :class_name => "Matters::Matter"
     validates_presence_of :name
     
     attr_accessible :account_tokens,:name,:email,:phone
