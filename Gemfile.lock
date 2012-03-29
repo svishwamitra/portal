@@ -4,6 +4,7 @@ PATH
     company (0.0.1)
       rails (~> 3.2.2)
       simple_form
+      sortable
 
 PATH
   remote: lib/contacts
@@ -14,6 +15,11 @@ PATH
       rails (~> 3.2.2)
       simple_form
       will_paginate
+
+PATH
+  remote: lib/sortable
+  specs:
+    sortable (0.0.1.alpha)
 
 GEM
   remote: https://rubygems.org/
@@ -150,6 +156,7 @@ DEPENDENCIES
   rails (~> 3.2.1)
   sass-rails (~> 3.2.3)
   simple_form
+  sortable!
   therubyracer
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)

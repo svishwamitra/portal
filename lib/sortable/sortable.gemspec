@@ -1,23 +1,21 @@
+# -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-
-# Maintain your gem's version:
 require "sortable/version"
 
-# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "sortable"
   s.version     = Sortable::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Sortable."
-  s.description = "TODO: Description of Sortable."
+  s.platform    = Gem::Platform::RUBY
+  s.authors     = ["TODO: Write your name"]
+  s.email       = ["TODO: Write your email address"]
+  s.homepage    = "http://rubygems.org/gems/sortable"
+  s.summary     = %q{TODO: Write a gem summary}
+  s.description = %q{TODO: Write a gem description}
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  s.rubyforge_project = "sortable"
 
-  s.add_dependency "rails", "~> 3.2.2"
-  s.add_dependency "will_paginate"
-
-  s.add_development_dependency "sqlite3"
+  s.files         = Dir["{app,config,db,lib}/**/*"]
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.require_paths = ["lib", "app"]  
 end
