@@ -1,5 +1,9 @@
 Portal::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
+
+  devise_for :users, ActiveAdmin::Devise.config
+
   mount Crm::Engine => "/crm"
   mount Company::Engine => "/company"
   mount Addressable::Engine => "/addressable"
