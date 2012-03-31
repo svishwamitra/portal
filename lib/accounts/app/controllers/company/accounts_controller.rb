@@ -2,6 +2,13 @@ module Company
   class AccountsController < ::ApplicationController
     # GET /accounts
     # GET /accounts.json
+
+    before_filter :initialize_data
+
+    def initialize_data
+      Account.searchable_columns :account_name => ["company_accounts.name", "Name"], :account_email => ["company_accounts.email", "Email"], :account_phone => ["company_accounts.phone", "Phone"]
+    end
+
     def index
       @accounts = Account.conditional_pagesort(params)
       @contacts = Crm::Contact.where("name #{like} ? and id not in(select contact_id from crm_account_contacts)", "%#{params[:q]}%")

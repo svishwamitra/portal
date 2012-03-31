@@ -1,9 +1,11 @@
 module SortableHelper
-  def searchable_view
+  def sortable_filer
     @head_columns = Sortable.searchable_columns
-    p "1111111111"
-    p @head_columns
-    p params
-    render 'sortable/head' #, :head_columns => Sortable.searchable_columns
+    render 'sortable/head'
   end
+
+  def sortable_alphabet
+    render 'sortable/alphabets'
+  end
+
 end

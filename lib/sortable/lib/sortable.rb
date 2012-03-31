@@ -8,7 +8,7 @@ module Sortable
 
    mattr_accessor :searchable_columns
    mattr_accessor :model_name
-   
+
    def self.conditional_pagesort(params)
      if ActiveRecord::Base.connection.adapter_name.downcase == 'postgresql'
         s = 'ilike'
@@ -26,7 +26,7 @@ module Sortable
         if conditions.length > 0
           conditions += " and "
         end
-        conditions += "#{val} #{s} ?"
+        conditions += "#{val[0]} #{s} ?"
         p << "#{params[key].to_s}%"
       end
       p.unshift(conditions)

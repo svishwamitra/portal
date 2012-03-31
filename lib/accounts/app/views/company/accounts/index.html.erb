@@ -1,8 +1,8 @@
 <h1>Portal Accounts</h1>
 <div style="float:right"><%= link_to 'New Account', new_account_path, :class => 'btn btn-primary' %></div>
-<%= render 'alphabets' %>
+<%= sortable_alphabet %>
 <table class="table table-striped">
-<%= searchable_view %>
+<%= sortable_filer %>
 <% @accounts.each do |account| %>
   <tr>
     <td><%= link_to account.name, account, :title => "View #{account.name}" %></td>

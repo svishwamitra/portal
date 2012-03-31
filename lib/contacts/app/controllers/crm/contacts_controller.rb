@@ -3,6 +3,13 @@ module Crm
     #caches_page :index, :show
     #cache_sweeper :contact_sweeper
     #before_filter(only: [:index, :show]) { @page_caching = true }
+    before_filter :initialize_data
+
+    def initialize_data
+      Contact.searchable_columns :contact_name => ["crm_contacts.name", "Name"], :contact_email => ["crm_contacts.email", "Email"], :contact_phone => ["crm_contacts.phone", "Phone"]
+    end
+
+
     # GET /contacts
     # GET /contacts.json
     def index

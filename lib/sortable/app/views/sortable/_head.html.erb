@@ -1,10 +1,10 @@
 <thead>
     <tr>
-      <%= @head_columns.each do |key, val| %>
+      <% @head_columns.each do |key, val| %>
         <th>
-          <%= link_to "^", params.merge({:sort => "#{val} asc"}), :title=> 'Asc' %>&nbsp;
-          Name &nbsp;
-          <%= link_to "v", params.merge({:sort => "#{val} asc"}), :title=> 'Desc' %>
+          <%= link_to "^", params.merge({:sort => "#{val[0]} asc"}), :title=> 'Asc' %>&nbsp;
+          <%= val[1].to_s  %>  &nbsp;
+          <%= link_to "v", params.merge({:sort => "#{val[0]} asc"}), :title=> 'Desc' %>
         </th>
       <%end%>      
       <th>Contacts</th>
@@ -15,7 +15,7 @@
     
     <%= form_tag(params.merge(:action=>:index), {:method => :get}) do %>
     <tr>
-      <%= @head_columns.each do |key, val| %>
+      <% @head_columns.each do |key, val| %>
         <th>
             <%= text_field_tag key.to_sym, params[key.to_sym], {:size => "5"} %>
         </th>
