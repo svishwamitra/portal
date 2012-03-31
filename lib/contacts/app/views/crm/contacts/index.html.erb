@@ -13,7 +13,7 @@ function show(id)
 <div style="float:right"><%= link_to 'New Contact', new_contact_path, :class => 'btn btn-primary' %></div>
 <%= render 'alphabets' %>
 <table class="table table-striped">
-<%= render 'head' %>
+<%= searchable_view %>
 <% @contacts.each do |contact| %>
   <tr>
     <td><%= link_to contact.name, contact, :title=>"View #{contact.name}" %></td>

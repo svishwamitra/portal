@@ -1,6 +1,7 @@
+require File.expand_path("../sortable/engine", __FILE__)
 require File.expand_path("../sortable/version", __FILE__)
 require File.expand_path("../sortable/model_additions", __FILE__)
-require File.expand_path("../../app/helpers/sortable_helper", __FILE__)
+require File.expand_path("../sortable/sortable_helper", __FILE__)
 require File.expand_path("../sortable/railtie", __FILE__) if defined? Rails
 
 module Sortable
