@@ -10,6 +10,7 @@ module Sortable
    mattr_accessor :model_name
 
    def self.conditional_pagesort(params)
+     # TODO : for date columns the like and ilike dosent work so need to handle date datatype
      if ActiveRecord::Base.connection.adapter_name.downcase == 'postgresql'
         s = 'ilike'
       else

@@ -1,9 +1,16 @@
 module Matters
   class MattersController < ::ApplicationController
+
+    before_filter :initialize_data
+
+    def initialize_data
+      Matter.searchable_columns :matters_matter_no => ["matters.matter_no", "Matter no."], :matters_ref_no => ["matters.ref_no", "Ref no."], :matters_name => ["matters.name", "Name"] #, :matters_matter_date => ["matters.matter_date", "Date"]
+    end
+
     # GET /matters
     # GET /matters.json
     def index
-      @matters = Matter.all
+      @matters = Matter.conditional_pagesort(params)
       @contacts = Crm::Contact.where("name #{like} ?", "%#{params[:q]}%")
       respond_to do |format|
         format.html # index.html.erb

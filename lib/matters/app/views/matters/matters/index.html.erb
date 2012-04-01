@@ -1,25 +1,14 @@
 <h1>Portal Matters</h1>
 <div style="float:right"><%= link_to 'New Matter', new_matter_path, :class => 'btn btn-primary' %></div>
+<%= sortable_alphabet %>
 <table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Matter no.</th>
-      <th>Ref no.</th>
-      <th>Matter Name</th>
-      <th>Matter Date</th>
-      <th>Contact</th>
-      <!--<th>Account</th>-->
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<%= sortable_filer %>
 <% @matters.each do |matter| %>
   <tr>
     <td><%= matter.matter_no %></td>
     <td><%= matter.ref_no %></td>
     <td><%= matter.name %></td>
-    <td><%= matter.matter_date %></td>
+    <!--<td><%#= matter.matter_date %></td>-->
     <td><%= matter.contact.name rescue "" %></td>
     <!--<td><%#= matter.account.name %></td>-->
     <td><%= link_to 'Show', matter, :class => 'btn btn-mini' %></td>
@@ -31,4 +20,4 @@
 
 <br />
 
-<%#= will_paginate @matters, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer %>
+<%= will_paginate @matters, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer %>
