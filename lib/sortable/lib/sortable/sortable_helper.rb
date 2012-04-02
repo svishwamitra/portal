@@ -1,5 +1,5 @@
 module SortableHelper
-  def sortable_filer
+  def sortable_filter
     @head_columns = Sortable.searchable_columns
     render 'sortable/head'
   end

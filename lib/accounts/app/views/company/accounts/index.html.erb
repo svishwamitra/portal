@@ -2,7 +2,7 @@
 <div style="float:right"><%= link_to 'New Account', new_account_path, :class => 'btn btn-primary' %></div>
 <%= sortable_alphabet %>
 <table class="table table-striped">
-<%= sortable_filer %>
+<%= sortable_filter %>
 <% @accounts.each do |account| %>
   <tr>
     <td><%= link_to account.name, account, :title => "View #{account.name}" %></td>

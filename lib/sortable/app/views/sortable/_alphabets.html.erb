@@ -1,4 +1,4 @@
 <% for char in 'A'..'Z' %>
 <%= link_to( "#{char}", :char => char) %>
 <% end %>
-- <%= link_to( "All", {:action => 'index'}) %>
+- <%= link_to( "All", '/' + params[:controller]) %>

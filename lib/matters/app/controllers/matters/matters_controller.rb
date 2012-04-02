@@ -4,13 +4,13 @@ module Matters
     before_filter :initialize_data
 
     def initialize_data
-      Matter.searchable_columns :matters_matter_no => ["matters.matter_no", "Matter no."], :matters_ref_no => ["matters.ref_no", "Ref no."], :matters_name => ["matters.name", "Name"] #, :matters_matter_date => ["matters.matter_date", "Date"]
+      Matter.searchable_columns :matters_name => ["matters.name", "Name"], :matters_matter_no => ["matters.matter_no", "Matter no."], :matters_ref_no => ["matters.ref_no", "Ref no."], :matters_matter_date => ["matters.matter_date", "Date"], :matters_contact_id => ["crm_contacts.name", "Contact"]
     end
 
     # GET /matters
     # GET /matters.json
     def index
-      @matters = Matter.conditional_pagesort(params)
+      @matters = Matter.conditional_pagesort(params, {:includes => :contact})
       @contacts = Crm::Contact.where("name #{like} ?", "%#{params[:q]}%")
       respond_to do |format|
         format.html # index.html.erb

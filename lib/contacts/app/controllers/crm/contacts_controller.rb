@@ -6,14 +6,14 @@ module Crm
     before_filter :initialize_data
 
     def initialize_data
-      Contact.searchable_columns :contact_name => ["crm_contacts.name", "Name"], :contact_email => ["crm_contacts.email", "Email"], :contact_phone => ["crm_contacts.phone", "Phone"]
+      Contact.searchable_columns :contact_name => ["crm_contacts.name", "Name"], :contact_email => ["crm_contacts.email", "Email"], :contact_phone => ["crm_contacts.phone", "Phone"], :contact_account_id => ["company_accounts.name", "Account"]
     end
 
 
     # GET /contacts
     # GET /contacts.json
     def index
-      @contacts = Contact.conditional_pagesort(params)
+      @contacts = Contact.conditional_pagesort(params, {:includes => [:accounts]})
       @accounts = Company::Account.where("name #{like} ?", "%#{params[:q]}%")
       
       respond_to do |format|

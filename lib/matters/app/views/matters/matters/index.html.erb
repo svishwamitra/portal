@@ -2,17 +2,17 @@
 <div style="float:right"><%= link_to 'New Matter', new_matter_path, :class => 'btn btn-primary' %></div>
 <%= sortable_alphabet %>
 <table class="table table-striped">
-<%= sortable_filer %>
+<%= sortable_filter %>
 <% @matters.each do |matter| %>
   <tr>
+    <td><%= link_to matter.name, edit_matter_path(matter) %></td>
     <td><%= matter.matter_no %></td>
-    <td><%= matter.ref_no %></td>
-    <td><%= matter.name %></td>
-    <!--<td><%#= matter.matter_date %></td>-->
+    <td><%= matter.ref_no %></td>    
+    <td><%= matter.matter_date %></td>
     <td><%= matter.contact.name rescue "" %></td>
     <!--<td><%#= matter.account.name %></td>-->
-    <td><%= link_to 'Show', matter, :class => 'btn btn-mini' %></td>
-    <td><%= link_to 'Edit', edit_matter_path(matter), :class => 'btn btn-mini' %></td>
+    <td><%#= link_to 'Show', matter, :class => 'btn btn-mini' %></td>
+    <td><%#= link_to 'Edit', edit_matter_path(matter), :class => 'btn btn-mini' %></td>
     <td><%= link_to 'Destroy', matter, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini btn-danger' %></td>
   </tr>
 <% end %>
