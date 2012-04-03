@@ -1,13 +1,21 @@
-PATH
-  remote: lib/accounts
+GIT
+  remote: http://github.com/svishwamitra/accounts.git
+  revision: 6e5190b77c23ae9392295709d3575e189362eb6c
   specs:
     company (0.0.1)
       rails (~> 3.2.2)
       simple_form
-      sortable
 
-PATH
-  remote: lib/contacts
+GIT
+  remote: http://github.com/svishwamitra/addressable.git
+  revision: a16e5bc0c91323283c373d2c1353f9c26ffb9a1f
+  specs:
+    addressable (0.0.1)
+      rails (~> 3.2.2)
+
+GIT
+  remote: http://github.com/svishwamitra/contacts.git
+  revision: f988eab3f152d79b3234e0b4f5ea87269227b0cf
   specs:
     crm (0.0.1)
       bootstrap-will_paginate
@@ -16,43 +24,51 @@ PATH
       simple_form
       will_paginate
 
-PATH
-  remote: lib/sortable
+GIT
+  remote: http://github.com/svishwamitra/matters.git
+  revision: 3dfc675d6c5d5f925ad90ca05ba598996bb0e1e9
+  specs:
+    matters (0.0.1)
+      rails (~> 3.2.2)
+
+GIT
+  remote: http://github.com/svishwamitra/sortable3.git
+  revision: 53944534540d3f3dd64e964e25ee4bf21b70d935
   specs:
     sortable (0.0.1.alpha)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    actionmailer (3.2.2)
-      actionpack (= 3.2.2)
-      mail (~> 2.4.0)
-    actionpack (3.2.2)
-      activemodel (= 3.2.2)
-      activesupport (= 3.2.2)
+    actionmailer (3.2.3)
+      actionpack (= 3.2.3)
+      mail (~> 2.4.4)
+    actionpack (3.2.3)
+      activemodel (= 3.2.3)
+      activesupport (= 3.2.3)
       builder (~> 3.0.0)
       erubis (~> 2.7.0)
       journey (~> 1.0.1)
       rack (~> 1.4.0)
-      rack-cache (~> 1.1)
+      rack-cache (~> 1.2)
       rack-test (~> 0.6.1)
       sprockets (~> 2.1.2)
-    activemodel (3.2.2)
-      activesupport (= 3.2.2)
+    activemodel (3.2.3)
+      activesupport (= 3.2.3)
       builder (~> 3.0.0)
-    activerecord (3.2.2)
-      activemodel (= 3.2.2)
-      activesupport (= 3.2.2)
+    activerecord (3.2.3)
+      activemodel (= 3.2.3)
+      activesupport (= 3.2.3)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
-    activeresource (3.2.2)
-      activemodel (= 3.2.2)
-      activesupport (= 3.2.2)
-    activesupport (3.2.2)
+    activeresource (3.2.3)
+      activemodel (= 3.2.3)
+      activesupport (= 3.2.3)
+    activesupport (3.2.3)
       i18n (~> 0.6)
       multi_json (~> 1.0)
     arel (3.0.2)
-    bootstrap-will_paginate (0.0.6)
+    bootstrap-will_paginate (0.0.7)
       will_paginate
     builder (3.0.0)
     coffee-rails (3.2.2)
@@ -62,8 +78,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
-    commonjs (0.2.0)
-      therubyracer (~> 0.9.9)
+    commonjs (0.2.5)
     erubis (2.7.0)
     execjs (1.3.0)
       multi_json (~> 1.0)
@@ -73,21 +88,20 @@ GEM
     jquery-rails (2.0.1)
       railties (>= 3.2.0, < 5.0)
       thor (~> 0.14)
-    json (1.6.5)
-    less (2.0.10)
+    json (1.6.6)
+    less (2.1.0)
       commonjs (~> 0.2.0)
-      therubyracer (~> 0.9.9)
-    less-rails (2.1.7)
+      therubyracer (~> 0.10.0)
+    less-rails (2.2.0)
       actionpack (>= 3.1)
-      less (~> 2.0.7)
+      less (~> 2.1.0)
     libv8 (3.3.10.4)
-    mail (2.4.3)
+    mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mime-types (1.17.2)
-    multi_json (1.1.0)
-    pg (0.13.2)
+    mime-types (1.18)
+    multi_json (1.2.0)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -96,17 +110,17 @@ GEM
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
-    rails (3.2.2)
-      actionmailer (= 3.2.2)
-      actionpack (= 3.2.2)
-      activerecord (= 3.2.2)
-      activeresource (= 3.2.2)
-      activesupport (= 3.2.2)
+    rails (3.2.3)
+      actionmailer (= 3.2.3)
+      actionpack (= 3.2.3)
+      activerecord (= 3.2.3)
+      activeresource (= 3.2.3)
+      activesupport (= 3.2.3)
       bundler (~> 1.0)
-      railties (= 3.2.2)
-    railties (3.2.2)
-      actionpack (= 3.2.2)
-      activesupport (= 3.2.2)
+      railties (= 3.2.3)
+    railties (3.2.3)
+      actionpack (= 3.2.3)
+      activesupport (= 3.2.3)
       rack-ssl (~> 1.3.2)
       rake (>= 0.8.7)
       rdoc (~> 3.4)
@@ -115,7 +129,7 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     sass (3.1.15)
-    sass-rails (3.2.4)
+    sass-rails (3.2.5)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
@@ -126,19 +140,20 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    therubyracer (0.9.10)
+    sqlite3 (1.3.5)
+    therubyracer (0.10.0)
       libv8 (~> 3.3.10)
     thor (0.14.6)
     tilt (1.3.3)
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    twitter-bootstrap-rails (2.0.3)
+    twitter-bootstrap-rails (2.0.5)
       actionpack (>= 3.1)
-      less-rails (~> 2.1.6)
+      less-rails (~> 2.2.0)
       railties (>= 3.1)
     tzinfo (0.3.32)
-    uglifier (1.2.3)
+    uglifier (1.2.4)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
     will_paginate (3.0.3)
@@ -147,16 +162,18 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  addressable!
   bootstrap-will_paginate
   coffee-rails (~> 3.2.1)
   company!
   crm!
   jquery-rails
-  pg
+  matters!
   rails (~> 3.2.1)
   sass-rails (~> 3.2.3)
   simple_form
   sortable!
+  sqlite3
   therubyracer
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)

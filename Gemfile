@@ -5,11 +5,13 @@ gem 'rails', '~>3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-#gem 'sqlite3'
-gem 'pg'
-gem 'crm', :path => 'lib/contacts'
-gem 'company', :path => 'lib/accounts'
-gem 'sortable', :path => 'lib/sortable'
+gem 'sqlite3'
+# gem 'pg'
+gem 'crm', :git => "http://github.com/svishwamitra/contacts.git"
+gem 'company', :git => "http://github.com/svishwamitra/accounts.git"
+gem 'matters',  :git => "http://github.com/svishwamitra/matters.git"
+gem 'sortable', :git => "http://github.com/svishwamitra/sortable3.git"
+gem 'addressable',  :git => "http://github.com/svishwamitra/addressable.git"
 gem 'will_paginate', '~>3.0'
 gem 'bootstrap-will_paginate'
 gem 'simple_form'
